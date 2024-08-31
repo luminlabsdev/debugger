@@ -2,7 +2,7 @@
     "name": "standalone",
     "tree": {
         "$path": "Packages",
-        "PROJECT": {
+        "Debugger": {
             "$path": "src"
         }
     }

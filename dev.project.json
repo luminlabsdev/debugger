@@ -1,12 +1,11 @@
 {
 	"legacyScripts": false,
-	"name": "PROJECT",
+	"name": "Debugger",
 	"tree": {
 		"$className": "DataModel",
 		"ReplicatedStorage": {
 			"Packages": {
-				"$path": "Packages",
-				"PROJECT": {
+				"Debugger": {
 					"$path": "src"
 				}
 			},

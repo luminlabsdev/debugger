@@ -1,7 +1,7 @@
 <div align="center">
 
-# Template
+# Debugger
 
-A template for future reference when creating open source projects.
+A simple and innovative debugger module for use in packages.
 
 </div>

@@ -7,4 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-[unreleased]: https://github.com/lumin-dev/PROJECT/compare/v0.1.0...HEAD
+### Added
+
+- Initial release! 🎉
+
+[unreleased]: https://github.com/lumin-dev/Debugger/compare/v0.1.0...HEAD
