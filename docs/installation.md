@@ -9,5 +9,5 @@
 ### Wally
 
 1. Open a project in your favorite text editor
-2. Add `lumin/Debugger@^0.1.0` to your `wally.toml` file
+2. Add `lumin/debugger@^0.1.0` to your `wally.toml` file
 3. Run `wally install` the project should be inside of your `/Packages` directory.

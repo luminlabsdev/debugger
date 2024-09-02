@@ -1,6 +1,8 @@
 [package]
 name = "lumin/debugger"
+description = "A customizable and extendable debugger for open source software."
 version = "0.1.0"
+license = "MIT"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 

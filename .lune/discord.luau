@@ -1,8 +1,8 @@
 local net = require("@lune/net")
 local process = require("@lune/process")
 
-local projectRole = "0"
-local projectMainterRole = "0"
+local projectRole = "1279426644448120922"
+local projectMainterRole = "1279426669157023755"
 
 local webhook_url = process.args[1]
 local type = process.args[2]

@@ -1,6 +1,5 @@
-# Vitepress
-docs/.vitepress/cache
-docs/.vitepress/dist
+# Mkdocs
+venv
 
 # Node
 node_modules

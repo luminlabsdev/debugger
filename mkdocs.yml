@@ -1,0 +1,22 @@
+site_name: My Docs
+repo_url: https://github.com/lumin-dev/debugger
+repo_name: lumin-dev/debugger
+theme:
+  name: material
+  favicon: path/to/file.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode

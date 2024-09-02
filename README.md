@@ -2,6 +2,6 @@
 
 # Debugger
 
-A simple and innovative debugger module for use in packages.
+A customizable and extendable debugger for open source software.
 
 </div>
