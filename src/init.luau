@@ -3,10 +3,13 @@
 local RunService = game:GetService("RunService")
 local PackageLinksAllowed = RunService:IsStudio()
 
+local Types = require(script.Types)
+
 local LogList = nil
 local Metadata = {
 	PackageURL = "",
 	PackageName = "Package",
+    TraceLevel = 3,
 }
 
 -- Functions
@@ -39,16 +42,16 @@ end
 
 	[Learn More](https://google.com)
 ]=]
-local function Format(logId: string, ...: any): string
+local function Format(logId: string, trace: string, ...: any): string
 	assert(LogList[logId], "Invalid log ID")
-	local Traceback = debug.traceback(nil, 3)
-	return string.gsub(
-		`[{Metadata.PackageName}] {LogList[logId] or "Package"}{if Metadata.PackageURL ~= ""
+    local FormattedLog = string.format(LogList[logId] or "Unknown", ...)
+	return (string.gsub(
+		`[{Metadata.PackageName}] {FormattedLog}{if Metadata.PackageURL ~= ""
 			then `\nLearn: {Metadata.PackageURL}`
-			else ""}\nTrace: {Traceback}`,
+			else ""}\nTrace: {(string.gsub(trace, "\n", ""))}`,
 		"\n",
 		"\n\t\t\t\t"
-	)
+	))
 end
 
 --[=[
@@ -57,7 +60,7 @@ end
 	[Learn More](https://google.com)
 ]=]
 local function Fatal(logId: string, ...: any): never
-	error(Format(logId, ...), 0)
+	error(Format(logId,	debug.traceback(nil, Metadata.TraceLevel), ...), 0)
 end
 
 --[=[
@@ -66,7 +69,7 @@ end
 	[Learn More](https://google.com)
 ]=]
 local function Warn(logId: string, ...: any)
-	warn(Format(logId, ...))
+	warn(Format(logId, debug.traceback(nil, Metadata.TraceLevel), ...))
 end
 
 --[=[
@@ -81,6 +84,23 @@ local function Assert<T>(condition: T, logId: string, ...: any): T
 	return Fatal(logId, ...)
 end
 
+--[=[
+	Extracts info from xpcall errors to beautify it.
+
+	[Learn More](https://google.com)
+]=]
+local function Parse(error: string): Types.ParsedError
+	return {
+		Raw = error,
+		Message = string.gsub(error, "^.+:%d+:%s*", ""),
+		Trace = debug.traceback(nil, Metadata.TraceLevel),
+	}
+end
+
+-- Types
+
+export type ParsedError = Types.ParsedError
+
 -- Module
 
 return table.freeze({
@@ -90,4 +110,5 @@ return table.freeze({
 	Fatal = Fatal,
 	Warn = Warn,
 	Assert = Assert,
+	Parse = Parse,
 })

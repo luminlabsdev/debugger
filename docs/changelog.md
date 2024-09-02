@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added a `Parse` function for use in xpcalls
+
 ## [0.2.0] - 2024-09-02
 
 ### Changed
