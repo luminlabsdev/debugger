@@ -1,7 +1,7 @@
 local Debugger = require(game.ReplicatedStorage.Packages.Debugger)
 
 Debugger.SetMetadata({
-    InfoURL = "https://lumin-dev.github.io/LuminFramework/",
+    PackageURL = "https://lumin-dev.github.io/LuminFramework/",
     PackageName = "LuminFramework"
 })
 
@@ -10,5 +10,5 @@ Debugger.SetLogs({
 })
 
 return function()
-    Debugger.Log("sigma", "err")
+    Debugger.Warn("sigma", "err")
 end
