@@ -17,7 +17,7 @@ local Metadata = {
 --[=[
 	Sets specific metadata for formatting; such as a custom web link or package name.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#setmetadata)
 ]=]
 local function SetMetadata(metadata: { [string]: any })
 	for key, value in metadata do
@@ -31,7 +31,7 @@ end
 --[=[
 	Sets a list of logs to be referenced within formatters.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#setlogs)
 ]=]
 local function SetLogs(logList: { [string]: string })
 	LogList = logList
@@ -40,7 +40,7 @@ end
 --[=[
 	Base formatter for all debug functions, returns a formatted string with extra info.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#format)
 ]=]
 local function Format(logId: string, trace: string, ...: any): string
 	assert(LogList[logId], "Invalid log ID")
@@ -57,7 +57,7 @@ end
 --[=[
 	Formats a fatal error of a log ID with provided parameters.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#fatal)
 ]=]
 local function Fatal(logId: string, ...: any): never
 	error(Format(logId,	debug.traceback(nil, Metadata.TraceLevel), ...), 0)
@@ -66,28 +66,28 @@ end
 --[=[
 	Formats a warning of a log ID with provided parameters.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#warn)
 ]=]
 local function Warn(logId: string, ...: any)
 	warn(Format(logId, debug.traceback(nil, Metadata.TraceLevel), ...))
 end
 
 --[=[
-	Returns the provided condition if it is false, behaves as the regular assert.
+	Returns the provided condition if it is true, behaves as the regular assert.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#assert)
 ]=]
 local function Assert<T>(condition: T, logId: string, ...: any): T
 	if not condition then
-		return condition :: any
+		return Fatal(logId, ...)
 	end
-	return Fatal(logId, ...)
+	return condition
 end
 
 --[=[
 	Extracts info from xpcall errors to beautify it.
 
-	[Learn More](https://google.com)
+	[Learn More](https://luminlabsdev.github.io/debugger/api/#parse)
 ]=]
 local function Parse(error: string): Types.ParsedError
 	return {

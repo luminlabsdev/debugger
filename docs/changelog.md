@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed incorrect behavior with `Assert`
+
 ## [0.3.0] - 2024-09-02
 
 ### Added
